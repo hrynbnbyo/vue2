@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <com></com>
+
+</div>
+
+<script src="js/vue.min.js"></script>
+
+<script>
+    let com = {
+        template: `
+            <div>这是我的第一个vue组件
+                <button @click="clickMe">点我</button>
+            </div>
+        `,
+        methods: {
+            clickMe() {
+            },
+        },
+        created: function () {
+            // 数据完成后出发
+            alert("数据赋值完成")
+        }
+    }
+
+    Vue.component("com", com)
+
+    new Vue({
+        el: "#app",
+        data: {},
+    })
+</script>
+
+</body>
+</html>

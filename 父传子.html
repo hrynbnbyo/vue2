@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="username">
+    <br>
+    父组件的参数：{{username}}
+    <hr>
+    <first :test="username"></first>
+
+</div>
+
+<script src="js/vue.min.js"></script>
+
+<script>
+    // 父
+    let first = {
+        template: `
+            <div>子组件接收的父组件的用户名：{{test}}</div>
+        `,
+        // 接受父传递的参数
+        props: ["test"]
+    }
+
+    // 父
+    new Vue({
+        el: "#app",
+        data: {
+            username: "",
+        },
+        components: {
+            "first": first,
+        }
+    })
+</script>
+
+</body>
+</html>
